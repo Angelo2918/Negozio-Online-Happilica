@@ -1,20 +1,23 @@
 package models;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import javax.management.relation.Role;
+import java.util.Set;
 
-import java.time.LocalDate;
-import java.util.List;
-
+/**
+ * Represents a User entity with information such as name, email, phone number, address, password, and roles.
+ */
 @Data
+@Builder
 @NoArgsConstructor
 @AllArgsConstructor
-@Entity
 @Table(name = "users")
+@Entity
+
 public class User {
 
 
@@ -24,20 +27,19 @@ public class User {
     private Long id;
 
     private String name;
-
+@Column(unique = true)
     private String email;
     private String phone;
 
-    private String username;
-    private boolean active;
+    private String address;
+    private String password;
 
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "address_id", referencedColumnName = "id")
-    @JsonBackReference
-    private Address address;
-
-    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
-    @JsonManagedReference
-    private List<Order> orders;
+    @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @JoinTable(name = "user_role",
+            joinColumns = @JoinColumn(name = "user_id", referencedColumnName = "id"),
+            inverseJoinColumns = @JoinColumn(name = "role_id", referencedColumnName = "id")
+    )
+    private Set<Role> roles;
 
 }
+
