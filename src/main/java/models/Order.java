@@ -1,5 +1,6 @@
 package models;
 
+import enums.OrderStatus;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -7,6 +8,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.Id;
 
+import java.time.LocalDate;
 import java.util.List;
 
 /**
@@ -27,7 +29,9 @@ public class Order {
 
     private Long userId;
 
-    @OneToMany
+    @OneToMany(mappedBy = "order",cascade = CascadeType.ALL)
     private List<OrderList> orderList;
-
+    private LocalDate orderDate;
+    @Enumerated(EnumType.STRING)
+    private OrderStatus status;
 }
