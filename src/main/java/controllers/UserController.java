@@ -8,7 +8,7 @@ import services.UserService;
 @RestController
 @RequestMapping("api/users")
 public class UserController {
-@Autowired
+    @Autowired
     private UserService userService;
 
 }

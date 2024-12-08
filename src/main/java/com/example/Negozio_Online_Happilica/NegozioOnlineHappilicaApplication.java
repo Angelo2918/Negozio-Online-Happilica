@@ -8,7 +8,7 @@ public class NegozioOnlineHappilicaApplication {
 
     public static void main(String[] args) {
 
-		SpringApplication.run(NegozioOnlineHappilicaApplication.class, args);
+        SpringApplication.run(NegozioOnlineHappilicaApplication.class, args);
     }
 
 }

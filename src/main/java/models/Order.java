@@ -29,7 +29,7 @@ public class Order {
 
     private Long userId;
 
-    @OneToMany(mappedBy = "order",cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "order", cascade = CascadeType.ALL)
     private List<OrderList> orderList;
     private LocalDate orderDate;
     @Enumerated(EnumType.STRING)
