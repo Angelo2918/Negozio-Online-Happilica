@@ -43,6 +43,12 @@ public class ProductsController {
 
     }
 
+    /**
+     * Retrieves a list of ProductsDto objects based on the specified CategoryEnum.
+     *
+     * @param deodorant The CategoryEnum value indicating the category for which products are to be retrieved.
+     * @return A list of ProductsDto objects associated with the specified category.
+     */
     @GetMapping("/products/{food}")
     public List<ProductsDto> getCategoryWiseProducts(@PathVariable("deodorant") CategoryEnum deodorant) {
 
