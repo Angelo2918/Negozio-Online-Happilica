@@ -5,6 +5,10 @@ import models.MyOrder;
 import java.util.List;
 
 
+/**
+ * An interface representing the OrderService in the system.
+ * Provides methods to manage orders including adding, viewing, updating, and removing orders.
+ */
 public interface OrderService {
 
 
