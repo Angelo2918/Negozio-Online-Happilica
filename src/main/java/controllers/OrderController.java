@@ -16,7 +16,7 @@ public class OrderController {
     @Autowired
     private OrderService orderservice;
 
-    @PostMapping("/addFromCart/{customerId}")
+    @PostMapping("/add-from-cart/{customerId}")
     public ResponseEntity<MyOrder>addOrderFromCart(@PathVariable Integer customerId){
         MyOrder myOrder=orderservice.addorderFromCart(customerId);
         return new ResponseEntity<MyOrder>(myOrder,HttpStatus.ACCEPTED);
