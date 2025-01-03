@@ -2,10 +2,10 @@ package services;
 
 import DataTransferObject.ProductsDto;
 import enums.CategoryEnum;
+import jakarta.validation.Valid;
 import models.Products;
 import org.springframework.stereotype.Service;
 
-import javax.validation.Valid;
 import java.util.List;
 
 /**
