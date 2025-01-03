@@ -25,6 +25,6 @@ public interface ProductsService {
 
     public String deleteProductFromCatalog(Integer id);
 
-    public Products updateProductIncatalog(Products product);
+    public Products updateProductInCatalog(Products product);
 
 }

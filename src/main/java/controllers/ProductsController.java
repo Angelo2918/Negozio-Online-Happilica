@@ -67,7 +67,7 @@ public class ProductsController {
     @PutMapping("/update-products")
     public ResponseEntity<Products> updateProductInCatalogHandler(@Valid @RequestBody Products prod) {
 
-        Products prod1 = productService.updateProductIncatalog(prod);
+        Products prod1 = productService.updateProductInCatalog(prod);
 
         return new ResponseEntity<Products>(prod1, HttpStatus.OK);
 

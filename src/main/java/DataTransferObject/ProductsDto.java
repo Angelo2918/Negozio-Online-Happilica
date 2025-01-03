@@ -5,6 +5,7 @@ import models.Products;
 import javax.validation.constraints.NotNull;
 import java.math.BigDecimal;
 
+
 public class ProductsDto {
 
     @NotNull(message = "Please input a valid product name")
