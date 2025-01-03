@@ -21,14 +21,14 @@ public class ProductsController {
     @Autowired
     private ProductsService productService;
 
-    @PostMapping("/addnewproducts")
+    @PostMapping("/add-new-products")
     public Products saveProductHandler(@Valid @RequestBody Products product) {
         return productService.addProducts(product);
 
     }
 
 
-    @GetMapping("/allproducts")
+    @GetMapping("/all-products")
     public List<Products> getAllProducts(){
 
         return productService.getAllProducts();
@@ -57,14 +57,14 @@ public class ProductsController {
     }
 
 
-    @DeleteMapping("/deleteproduct/{id}")
+    @DeleteMapping("/delete-product/{id}")
     public ResponseEntity<String> deleteProductFromCatalogHandler(@PathVariable("id") Integer id) {
 
         String res = productService.deleteProductFromCatalog(id);
         return new ResponseEntity<String>(res, HttpStatus.OK);
     }
 
-    @PutMapping("/updateproducts")
+    @PutMapping("/update-products")
     public ResponseEntity<Products> updateProductInCatalogHandler(@Valid @RequestBody Products prod) {
 
         Products prod1 = productService.updateProductIncatalog(prod);

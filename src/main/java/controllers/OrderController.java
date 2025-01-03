@@ -22,25 +22,25 @@ public class OrderController {
         return new ResponseEntity<MyOrder>(myOrder,HttpStatus.ACCEPTED);
     }
 
-    @GetMapping("/findallOrder")
+    @GetMapping("/find-all-order")
     public ResponseEntity<List<MyOrder>>viewAllOrder(){
         List<MyOrder> allOrder= orderservice.viewOrder();
         return new ResponseEntity<List<MyOrder>>(allOrder, HttpStatus.ACCEPTED);
     }
 
-    @GetMapping("/findByCustomerId/{customerId}")
+    @GetMapping("/find-by-customer-id/{customerId}")
     public ResponseEntity<MyOrder>viewOrderByCustomerID(@PathVariable Integer customerId){
         MyOrder findOrder=orderservice.viewOrderByCustomerId(customerId);
         return new ResponseEntity<MyOrder>(findOrder,HttpStatus.ACCEPTED);
     }
 
-    @GetMapping("/findOrderByUserName/{FirstName}/{LastName}/{mobileNo}")
+    @GetMapping("/find-order-by-user-name/{FirstName}/{LastName}/{mobileNo}")
     public ResponseEntity<List<MyOrder>>viewByUserName(@PathVariable("FirstName") String FirstName,@PathVariable("LastName") String LastName,@PathVariable("mobileNo") String mobileNo ){
         List<MyOrder>getOrderByName= orderservice.findOrderByUserName(FirstName, LastName,mobileNo);
         return new ResponseEntity<List<MyOrder>>(getOrderByName,HttpStatus.ACCEPTED);
     }
 
-    @DeleteMapping("removeOrder/{customerId}")
+    @DeleteMapping("remove-order/{customerId}")
     public ResponseEntity<String>removeOrderByCustomerID(@PathVariable Integer customerId){
         String findOrder=orderservice.removeOrder(customerId);
 

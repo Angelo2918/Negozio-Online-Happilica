@@ -1,16 +1,16 @@
 package models;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
-import javax.validation.constraints.NotBlank;
+
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
-import java.io.Serializable;
+
 
 /**
  * Represents an address entity with details such as street number, city, country, and pincode.
@@ -18,6 +18,7 @@ import java.io.Serializable;
  * It uses Lombok annotations such as @Data, @NoArgsConstructor, @AllArgsConstructor, and @ToString for code generation.
  */
 @Entity
+@Table(name = "adresses")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -30,11 +31,15 @@ public class Address {
     private Integer addressId;
     @NotNull(message = "Please fill street number!")
     private String streetNo;
-    @NotNull(message = "Please fill City name!")
+    @NotNull(message = "please fill Building name")
+    private String buildingName;
+    @NotNull(message = "please fill City name")
     private String city;
-    @NotNull(message = "Please fill country name!")
+    @NotNull(message = "please fill state name")
+    private String state;
+    @NotNull(message = "please fill country name")
     private String country;
-    @NotNull(message = "Please input a valid postal code!")
+    @Pattern(regexp = "([1-9]{1}[0-9]{5}|[1-9]{1}[0-9]{3}\\\\s[0-9]{3})", message = "please input a valid pincode")
     private String pincode;
 
 }

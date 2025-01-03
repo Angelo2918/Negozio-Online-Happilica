@@ -25,6 +25,7 @@ import java.util.List;
 @AllArgsConstructor
 @Entity
 @ToString
+@Table(name = "customers")
 public class Customer {
 
     @Id

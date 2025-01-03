@@ -41,7 +41,7 @@ public class AddressController {
         return new ResponseEntity<Address>(address, HttpStatus.OK);
     }
 
-    @GetMapping("/getall")
+    @GetMapping("/get_all")
     public List<Address> getAllAddressHandler() {
         return addressService.viewAllAddress();
     }
