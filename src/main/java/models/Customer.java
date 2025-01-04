@@ -37,7 +37,7 @@ public class Customer {
     private String lastname;
     @Email(message = "Please input a valid email address!")
     private String email;
-    @Pattern(regexp = "[7896]{1}[0-9]{9}",message = "Input a valid mobile number")
+    @Pattern(regexp = "[7896]{1}[0-9]{9}", message = "Input a valid mobile number")
     @NotNull(message = "Please enter your mobile phone!")
     private String mobilenumber;
 

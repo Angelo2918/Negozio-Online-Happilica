@@ -11,11 +11,11 @@ import java.util.List;
 
 /**
  * Represents an order made by a customer in the system.
- *
+ * <p>
  * The MyOrder class is annotated with @Data, @AllArgsConstructor, @NoArgsConstructor, @Entity, and @ToString annotations, providing necessary functionalities and marking it as a
- *  JPA entity.
+ * JPA entity.
  * The entity stores information about an order, including order ID, local date and time of the order, order status, customer details, product list, and delivery address.
- *
+ * <p>
  * The fields in the MyOrder class are:
  * - orderId: Unique identifier for the order.
  * - localDateTime: Date and time when the order was placed.

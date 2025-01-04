@@ -11,5 +11,5 @@ import java.util.Optional;
  * An interface representing a repository for User entities. Extends JpaRepository for CRUD operations.
  */
 public interface UserRepository extends CrudRepository<User, Long> {
-Optional<User> findByUsername(String username);
+    Optional<User> findByUsername(String username);
 }

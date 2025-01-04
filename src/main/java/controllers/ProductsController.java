@@ -30,7 +30,7 @@ public class ProductsController {
 
 
     @GetMapping("/all-products")
-    public List<Products> getAllProducts(){
+    public List<Products> getAllProducts() {
 
         return productService.getAllProducts();
     }
@@ -38,7 +38,7 @@ public class ProductsController {
     @GetMapping("/product/{id}")
     public ResponseEntity<Products> getProductFromCatalogByIdHandler(@PathVariable("id") Integer id) {
 
-        Products prod =  productService.getProductsFromCatalogById(id);
+        Products prod = productService.getProductsFromCatalogById(id);
 
         return new ResponseEntity<Products>(prod, HttpStatus.FOUND);
 
@@ -74,23 +74,6 @@ public class ProductsController {
 
 
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 }
