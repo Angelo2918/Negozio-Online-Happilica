@@ -11,12 +11,12 @@ import java.util.List;
 @Data
 @ToString
 public class CreateUserDto implements Serializable {
-private String name;
-private LocalDate registrationDate;
-private String email;
-private String username;
-private boolean active;
-private AddressDto address;
-private List<Order> orders;
+    private String name;
+    private LocalDate registrationDate;
+    private String email;
+    private String username;
+    private boolean active;
+    private AddressDto address;
+    private List<Order> orders;
 
 }

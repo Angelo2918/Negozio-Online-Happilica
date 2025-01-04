@@ -1,4 +1,4 @@
-package com.example.Negozio_Online_Happillica;
+package com.example.Negozio_Online_Happilica;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

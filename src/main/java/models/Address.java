@@ -18,7 +18,7 @@ import javax.validation.constraints.Pattern;
  * It uses Lombok annotations such as @Data, @NoArgsConstructor, @AllArgsConstructor, and @ToString for code generation.
  */
 @Entity
-@Table(name = "adresses")
+@Table(name = "addresses")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor

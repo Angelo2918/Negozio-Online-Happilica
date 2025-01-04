@@ -15,6 +15,7 @@ import java.util.List;
 /**
  * RestController for managing products in the system.
  */
+@RequestMapping("/products")
 @RestController
 public class ProductsController {
 

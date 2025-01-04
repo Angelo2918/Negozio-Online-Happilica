@@ -1,9 +1,6 @@
 package DataTransferObject;
-
-import models.Products;
-
 import javax.validation.constraints.NotNull;
-import java.math.BigDecimal;
+
 
 
 public class ProductsDto {
