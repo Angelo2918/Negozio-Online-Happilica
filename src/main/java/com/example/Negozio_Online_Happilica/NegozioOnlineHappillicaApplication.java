@@ -1,14 +1,14 @@
-package com.example.Negozio_Online_Happilica;
+package com.example.Negozio_Online_Happillica;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class NegozioOnlineHappilicaApplication {
+public class NegozioOnlineHappillicaApplication {
 
     public static void main(String[] args) {
 
-        SpringApplication.run(NegozioOnlineHappilicaApplication.class, args);
+        SpringApplication.run(NegozioOnlineHappillicaApplication.class, args);
     }
 
 }

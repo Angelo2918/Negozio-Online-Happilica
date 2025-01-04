@@ -1,16 +1,19 @@
 package services;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-import repositories.UserRepository;
 
-@Service
-public class UserService {
-    /**
-     * Autowired field that represents a repository for User entities.
-     * This UserRepository interface extends JpaRepository for CRUD operations and allows for operations such as saving, updating, and deleting User entities.
-     * It also provides a specific method findByMobile(String mobile) to retrieve a User entity by their mobile number.
-     */
-    @Autowired
-    private UserRepository repository;
+import DataTransferObject.CreateUserDto;
+import models.User;
+
+import java.util.List;
+import java.util.Optional;
+
+public interface UserService {
+  Iterable<User> saveAll(List<User> users);
+  Iterable<User> findAllUsers();
+  void deleteUser(Long id);
+    Optional<User> findUserByUsername(String username);
+
+    User addUser(User user);
+
+    User createUserFromDto(CreateUserDto userDto);
 }

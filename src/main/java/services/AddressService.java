@@ -1,16 +1,17 @@
 package services;
 
+
 import models.Address;
+import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;
 
 /**
- * Interface representing a service for managing address entities.
- * Provides functionality to add, update, remove, and view individual addresses,
- * as well as retrieve a list of all addresses.
+ * This interface represents a service for managing address entities.
+ * It extends JpaRepository for basic CRUD operations.
  */
 
-public interface AddressService {
+public interface AddressService extends JpaRepository<Address, Long> {
     public Address addAddress(Address add);
 
     public Address updateAddress(Address add);
