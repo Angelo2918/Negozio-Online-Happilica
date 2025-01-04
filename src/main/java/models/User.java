@@ -11,7 +11,7 @@ import java.time.LocalDate;
  * such as id, name, mobile number, registration date, email, username, and active status.
  */
 @Entity
-@Table(name = "users")
+@Table(name = "/api/users")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
