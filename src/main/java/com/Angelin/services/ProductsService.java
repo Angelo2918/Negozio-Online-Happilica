@@ -11,7 +11,7 @@ import java.util.List;
 /**
  * Interface representing a ProductsService, providing operations for managing products in the system.
  */
-@Service
+
 public interface ProductsService {
 
 

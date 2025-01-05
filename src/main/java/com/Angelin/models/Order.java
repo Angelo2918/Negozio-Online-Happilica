@@ -1,37 +1,35 @@
 package com.Angelin.models;
 
+
 import com.Angelin.enums.OrderStatus;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.springframework.data.annotation.Id;
 
+import java.math.BigDecimal;
 import java.time.LocalDate;
-import java.util.List;
 
-/**
- * This class represents an order entity that includes information such as order id, user id, and a list of order items.
- * It is annotated as an entity in JPA to enable mapping to a corresponding database table called "orders".
- */
+@Entity
+@Table(name = "orders")
 @Data
-@Builder
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "order")
-@Entity
 public class Order {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private Long userId;
-
-    @OneToMany(mappedBy = "order", cascade = CascadeType.ALL)
-    private List<OrderList> orderList;
     private LocalDate orderDate;
+
     @Enumerated(EnumType.STRING)
     private OrderStatus status;
+    private BigDecimal totalAmount;
+
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JoinColumn(name = "user_id", referencedColumnName = "id")
+    @JsonBackReference
+    private User user;
+
 }

@@ -14,9 +14,26 @@ import javax.validation.Valid;
 import java.util.List;
 
 /**
- * RestController for managing products in the system.
+ * Represents a controller for handling operations related to products.
+ *
+ * The class defines several endpoints for managing products including adding new products, retrieving all products,
+ * getting product by id, getting products by category, deleting a product, and updating a product.
+ * Each endpoint corresponds to a specific operation provided by the ProductsService.
+ *
+ * This class is annotated with @RestController and @RequestMapping indicating that it handles HTTP requests for "/products".
+ *
+ * Contains methods:
+ * - saveProductHandler: Handles POST request to add new products to the system.
+ * - getAllProducts: Handles GET request to retrieve all products.
+ * - getProductFromCatalogByIdHandler: Handles GET request to retrieve a specific product by its id.
+ * - getCategoryWiseProducts: Handles GET request to retrieve products based on a specific category.
+ * - deleteProductFromCatalogHandler: Handles DELETE request to delete a product from the catalog.
+ * - updateProductInCatalogHandler: Handles PUT request to update an existing product in the catalog.
+ *
+ * Dependencies:
+ * - productService: An instance of ProductsService for performing operations on products.
  */
-@RequestMapping("/products")
+@RequestMapping("/product")
 @RestController
 public class ProductsController {
 
@@ -45,16 +62,10 @@ public class ProductsController {
 
     }
 
-    /**
-     * Retrieves a list of ProductsDto objects based on the specified CategoryEnum.
-     *
-     * @param deodorant The CategoryEnum value indicating the category for which products are to be retrieved.
-     * @return A list of ProductsDto objects associated with the specified category.
-     */
-    @GetMapping("/products/{food}")
-    public List<ProductsDto> getCategoryWiseProducts(@PathVariable("deodorant") CategoryEnum deodorant) {
+    @GetMapping("/product/{food}")
+    public List<ProductsDto> getCategoryWiseProducts(@PathVariable("bread") CategoryEnum bread) {
 
-        return productService.getCategoryWiseProducts(deodorant);
+        return productService.getCategoryWiseProducts(bread);
 
     }
 

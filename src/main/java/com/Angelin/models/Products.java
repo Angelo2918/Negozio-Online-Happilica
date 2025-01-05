@@ -2,9 +2,6 @@ package com.Angelin.models;
 
 import jakarta.persistence.*;
 
-import lombok.Data;
-import lombok.NoArgsConstructor;
-
 import java.math.BigDecimal;
 
 /**
@@ -21,11 +18,9 @@ import java.math.BigDecimal;
  * - price: Price of the product.
  * - rating: Rating of the product.
  */
-@Data
-@NoArgsConstructor
+
 @Table(name = "products")
 @Entity
-
 public class Products {
 
     @Id
@@ -37,9 +32,5 @@ public class Products {
     @Column(nullable = false)
     private BigDecimal price;
 
-    @Enumerated(EnumType.STRING)
-    private Products category;
-    @Column(nullable = false)
-    private int stockQuantity;
 
 }

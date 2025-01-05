@@ -2,15 +2,8 @@ package com.Angelin.models;
 
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
-
-
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Pattern;
-
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Pattern;
 
 /**
  * Represents an address entity with details such as street number, city, country, and pincode.
@@ -19,10 +12,6 @@ import javax.validation.constraints.Pattern;
  */
 @Entity
 @Table(name = "addresses")
-@Data
-@NoArgsConstructor
-@AllArgsConstructor
-@ToString
 public class Address {
 
 

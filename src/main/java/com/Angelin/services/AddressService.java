@@ -3,6 +3,7 @@ package com.Angelin.services;
 
 import com.Angelin.models.Address;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 

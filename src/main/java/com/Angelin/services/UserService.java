@@ -2,6 +2,7 @@ package com.Angelin.services;
 
 
 import com.Angelin.models.User;
+import org.springframework.stereotype.Service;
 
 
 import java.util.List;
