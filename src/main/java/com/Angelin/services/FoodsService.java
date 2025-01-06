@@ -4,7 +4,7 @@ import com.Angelin.models.Foods;
 
 import java.util.List;
 
-public interface FoodsService {
+public interface FoodsService  {
     List<Foods> getAllFoods();
 
     Foods findFoodsById(Long id);

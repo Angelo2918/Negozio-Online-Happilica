@@ -14,7 +14,7 @@ public class OrderItem {
     private Long id;
 
     @ManyToOne
-    @JoinColumn(name = "instrument_id", nullable = false)
+    @JoinColumn(name = "foods_id", nullable = false)
     private Foods foods;
 
     @Column(nullable = false)
@@ -41,14 +41,40 @@ public class OrderItem {
     public void setQuantity(Integer quantity) {
         if (quantity <= 0)
             throw new IllegalArgumentException("Quantity must be positive!");
-//        if (quantity > instrument.getStockQuantity())
-//            throw new IllegalStateException("Insufficient stock for this instrument!");
+
 
         this.quantity = quantity;
     }
 
-    public void updateInstrumentStock() {
+    public void updateFoodsStock() {
         this.foods.setStockQuantity(this.foods.getStockQuantity() - this.quantity);
     }
 
+    public Long getId() {
+        return id;
+    }
+
+    public Foods getFoods() {
+        return foods;
+    }
+
+    public Integer getQuantity() {
+        return quantity;
+    }
+
+    public Order getOrder() {
+        return order;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public void setFoods(Foods foods) {
+        this.foods = foods;
+    }
+
+    public void setOrder(Order order) {
+        this.order = order;
+    }
 }

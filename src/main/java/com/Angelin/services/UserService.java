@@ -1,6 +1,7 @@
 package com.Angelin.services;
 
 
+import com.Angelin.DataTransferObject.CreateUserDto;
 import com.Angelin.models.User;
 import org.springframework.stereotype.Service;
 
@@ -20,4 +21,5 @@ public interface UserService {
 
     User addUser(User user);
 
+    User createUserFromDto(CreateUserDto userDto);
 }

@@ -16,22 +16,28 @@ import java.util.Set;
  * such as id, name, mobile number, registration date, email, username, and active status.
  */
 @Entity
-@Table(name = "/api/users")
+@Table(name = "users")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 public class User {
-
-
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
-    private String mobile;
     private LocalDate registrationDate;
     private String email;
     private String username;
     private boolean active;
+
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "address_id", referencedColumnName = "id")
+    @JsonManagedReference
+    private Address address;
+
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
+    @JsonManagedReference
+    private List<Order> orders = new ArrayList<>();
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
     @JsonManagedReference
@@ -41,9 +47,8 @@ public class User {
     @JoinTable(
             name = "wishlist",
             joinColumns = @JoinColumn(name = "user_id"),
-            inverseJoinColumns = @JoinColumn(name = "instrument_id")
+            inverseJoinColumns = @JoinColumn(name = "foods_id")
     )
     private Set<Foods> wishlist = new HashSet<>();
 
 }
-

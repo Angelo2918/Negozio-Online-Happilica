@@ -1,9 +1,9 @@
-package com.Angelin.impl;
+package com.Angelin.services.impl;
 
-import com.Angelin.models.MyOrder;
 import com.Angelin.models.Order;
 import com.Angelin.models.OrderItem;
 import com.Angelin.repositories.FoodsRepository;
+import com.Angelin.repositories.OrderRepository;
 import com.Angelin.repositories.UserJpaRepository;
 import com.Angelin.repositories.UserRepository;
 import com.Angelin.services.OrderService;
@@ -15,9 +15,9 @@ import java.util.List;
 @Service
 public class OrderServiceImpl implements OrderService {
     @Autowired
-    private UserRepository repository;
+    private OrderRepository orderRepository;
     @Autowired
-    private UserJpaRepository jpaRepository;
+    private UserJpaRepository userRepository;
     @Autowired
     private FoodsRepository foodsRepository;
 
