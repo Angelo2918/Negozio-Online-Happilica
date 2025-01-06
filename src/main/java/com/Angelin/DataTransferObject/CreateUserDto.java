@@ -1,8 +1,8 @@
 package com.Angelin.DataTransferObject;
 
+import com.Angelin.models.Order;
 import lombok.Data;
 import lombok.ToString;
-import com.Angelin.models.Order;
 
 import java.io.Serializable;
 import java.time.LocalDate;

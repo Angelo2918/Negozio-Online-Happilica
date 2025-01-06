@@ -1,23 +1,18 @@
 package com.Angelin.services;
 
-import com.Angelin.impl.OrderServiceImpl;
-import com.Angelin.models.MyOrder;
-import com.Angelin.models.OrderList;
+import com.Angelin.models.Order;
+import com.Angelin.models.OrderItem;
 
 import java.util.List;
+
 /**
  * An interface representing the OrderService in the system.
  * Provides methods to manage orders including adding, viewing, updating, and removing orders.
  */
 public interface OrderService {
+    Order placeOrder(Long userId, List<OrderItem> items);
 
-    public List<MyOrder> viewOrder();
+    List<Order> getOrdersWithPagination(Long userId, int page, int size);
 
-    public MyOrder viewOrderByCustomerId(Integer customerId);
-
-    public List<MyOrder> findOrderByUserName(String FirstName, String LastName, String mobileNo);
-
-    public String removeOrder(Integer customerId);
-
-    public MyOrder addOrderFromCart(Integer customerId);
+    Order cancelOrder(Long orderId);
 }

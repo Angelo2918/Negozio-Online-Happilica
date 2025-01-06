@@ -8,10 +8,9 @@ import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
 import java.math.BigDecimal;
 import java.time.LocalDate;
-import java.util.List;
+import java.util.Set;
 
 @Entity
 @Table(name = "orders")
@@ -24,8 +23,8 @@ public class Order {
     private Long id;
 
     @OneToMany(mappedBy = "order", cascade = CascadeType.ALL)
-    @JsonManagedReference
-    private List<OrderItem> items;
+
+    private Set<OrderItem> items;
     private LocalDate orderDate;
     @Enumerated
     private OrderStatus status;
@@ -36,7 +35,7 @@ public class Order {
     @JsonBackReference
     private User user;
 
-    public Order(List<OrderItem> items, OrderStatus status, LocalDate orderDate, User user) {
+    public Order(Set<OrderItem> items, OrderStatus status, LocalDate orderDate, User user) {
         this.items = items;
         this.status = status;
         this.orderDate = orderDate;

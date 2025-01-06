@@ -1,6 +1,9 @@
 package com.Angelin.impl;
 
 import com.Angelin.models.MyOrder;
+import com.Angelin.models.Order;
+import com.Angelin.models.OrderItem;
+import com.Angelin.repositories.FoodsRepository;
 import com.Angelin.repositories.UserJpaRepository;
 import com.Angelin.repositories.UserRepository;
 import com.Angelin.services.OrderService;
@@ -15,29 +18,21 @@ public class OrderServiceImpl implements OrderService {
     private UserRepository repository;
     @Autowired
     private UserJpaRepository jpaRepository;
+    @Autowired
+    private FoodsRepository foodsRepository;
 
-
-    public List<MyOrder> viewOrder() {
-        return List.of();
-    }
-
-
-    public MyOrder viewOrderByCustomerId(Integer customerId) {
+    @Override
+    public Order placeOrder(Long userId, List<OrderItem> items) {
         return null;
     }
 
-
-    public List<MyOrder> findOrderByUserName(String FirstName, String LastName, String mobileNo) {
+    @Override
+    public List<Order> getOrdersWithPagination(Long userId, int page, int size) {
         return List.of();
     }
 
-
-    public String removeOrder(Integer customerId) {
-        return "";
-    }
-
-
-    public MyOrder addOrderFromCart(Integer customerId) {
+    @Override
+    public Order cancelOrder(Long orderId) {
         return null;
     }
 }

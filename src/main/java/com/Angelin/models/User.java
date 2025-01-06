@@ -1,9 +1,14 @@
 package com.Angelin.models;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.*;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
 
 /**
@@ -27,5 +32,18 @@ public class User {
     private String email;
     private String username;
     private boolean active;
+
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+    @JsonManagedReference
+    private List<Review> reviews = new ArrayList<>();
+
+    @ManyToMany
+    @JoinTable(
+            name = "wishlist",
+            joinColumns = @JoinColumn(name = "user_id"),
+            inverseJoinColumns = @JoinColumn(name = "instrument_id")
+    )
+    private Set<Foods> wishlist = new HashSet<>();
+
 }
 

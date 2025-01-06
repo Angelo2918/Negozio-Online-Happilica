@@ -2,7 +2,7 @@ package com.Angelin.controller;
 
 
 import com.Angelin.DataTransferObject.ProductsDto;
-import com.Angelin.enums.CategoryEnum;
+import com.Angelin.enums.FoodsCategory;
 import com.Angelin.models.Products;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -63,7 +63,7 @@ public class ProductsController {
     }
 
     @GetMapping("/product/{food}")
-    public List<ProductsDto> getCategoryWiseProducts(@PathVariable("bread") CategoryEnum bread) {
+    public List<ProductsDto> getCategoryWiseProducts(@PathVariable("bread") FoodsCategory bread) {
 
         return productService.getCategoryWiseProducts(bread);
 

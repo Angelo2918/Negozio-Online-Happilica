@@ -1,10 +1,9 @@
 package com.Angelin.services;
 
 import com.Angelin.DataTransferObject.ProductsDto;
-import com.Angelin.enums.CategoryEnum;
+import com.Angelin.enums.FoodsCategory;
 import jakarta.validation.Valid;
 import com.Angelin.models.Products;
-import org.springframework.stereotype.Service;
 
 import java.util.List;
 
@@ -21,7 +20,7 @@ public interface ProductsService {
 
     public Products getProductsFromCatalogById(Integer id);
 
-    public List<ProductsDto> getCategoryWiseProducts(CategoryEnum deodorant);
+    public List<ProductsDto> getCategoryWiseProducts(FoodsCategory deodorant);
 
     public String deleteProductFromCatalog(Integer id);
 
