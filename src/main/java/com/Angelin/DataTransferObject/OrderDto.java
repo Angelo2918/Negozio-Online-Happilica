@@ -18,4 +18,15 @@ public class OrderDto implements Serializable {
     private Double price;
     private LocalDate orderDate;
 
+    public String getProduct() {
+        return product;
+    }
+
+    public Double getPrice() {
+        return price;
+    }
+
+    public LocalDate getOrderDate() {
+        return orderDate;
+    }
 }

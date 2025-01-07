@@ -41,4 +41,8 @@ public class OrdersController {
     public OrderService getService() {
         return service;
     }
+
+    public void setService(OrderService service) {
+        this.service = service;
+    }
 }

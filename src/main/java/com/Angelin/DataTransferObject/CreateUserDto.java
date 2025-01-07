@@ -26,5 +26,4 @@ public class CreateUserDto implements Serializable {
     private boolean active;
     private AddressDto address;
     private List<Order> orders;
-
 }
