@@ -8,6 +8,9 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+/**
+ * This class represents a service implementation for managing food items.
+ */
 @Service
 public class FoodServiceImpl implements FoodService {
     private final FoodRepository foodRepository;

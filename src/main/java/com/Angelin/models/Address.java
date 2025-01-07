@@ -7,6 +7,10 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+/**
+ * Represents an address entity that stores information about a physical location.
+ * Includes details such as city, street, country, and number of the street.
+ */
 @Entity
 @Table(name = "addresses")
 @Data

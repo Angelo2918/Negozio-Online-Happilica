@@ -4,8 +4,11 @@ import com.Angelin.models.Order;
 import com.Angelin.models.OrderItem;
 import com.Angelin.services.OrderService;
 import org.springframework.stereotype.Service;
-
 import java.util.List;
+
+/**
+ * Service implementation for managing orders.
+ */
 @Service
 public class OrderServiceImpl implements OrderService {
 

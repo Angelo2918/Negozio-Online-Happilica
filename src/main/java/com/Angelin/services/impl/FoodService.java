@@ -6,6 +6,9 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+/**
+ * Represents a service for managing food items.
+ */
 @Service
 public interface FoodService {
 

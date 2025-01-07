@@ -13,6 +13,12 @@ import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.List;
 
+/**
+ * Represents an order placed by a user consisting of order items.
+ *
+ * An order includes the ID, items in the order, order date, status, total amount, and the user who placed the order.
+ * It provides methods to calculate the total amount of the order and update its status based on the order items.
+ */
 @Entity
 @Table(name = "orders")
 @Data
@@ -42,7 +48,9 @@ public class Order {
         this.orderDate = orderDate;
         this.user = user;
     }
+    public Order() {
 
+    }
     public void calculateTotalAmount() {
         this.totalAmount = items.stream().map(OrderItem::getSubtotal).reduce(BigDecimal.ZERO, BigDecimal::add);
     }

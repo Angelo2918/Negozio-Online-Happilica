@@ -8,6 +8,9 @@ import lombok.NoArgsConstructor;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 
+/**
+ * Represents a review entity that contains information about a user's review of a food item.
+ */
 @Entity
 @Table(name = "reviews")
 @Data
@@ -19,12 +22,10 @@ public class Review {
 
     @ManyToOne(fetch = FetchType.LAZY,cascade = CascadeType.ALL)
     @JoinColumn(name = "user_id",referencedColumnName = "id")
-    @JsonBackReference
     private User user;
 
     @ManyToOne(fetch = FetchType.LAZY,cascade = CascadeType.ALL)
     @JoinColumn(name = "food_id",referencedColumnName = "id")
-    @JsonBackReference
     private Food food;
     private Integer rating;
     private String comment;

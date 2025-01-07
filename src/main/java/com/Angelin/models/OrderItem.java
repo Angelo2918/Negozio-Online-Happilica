@@ -6,6 +6,9 @@ import lombok.Data;
 
 import java.math.BigDecimal;
 
+/**
+ * Represents an item in an order that includes the food, quantity, and order it belongs to.
+ */
 @Entity
     @Table(name = "order_item")
     @Data

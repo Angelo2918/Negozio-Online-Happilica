@@ -12,6 +12,11 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+/**
+ * Represents a user entity that stores information about a user.
+ * Includes details such as ID, name, age, registration date, email, username, and activity status.
+ * Contains associations with address, orders, reviews, and wishlist.
+ */
 @Entity
 @Table(name = "users")
 @Data
@@ -22,7 +27,6 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
-    private Integer age;
     private LocalDate registrationDate;
     private String email;
     private String username;
@@ -42,11 +46,7 @@ public class User {
     private List<Review> reviews = new ArrayList<>();
 
     @ManyToMany
-    @JoinTable(
-            name = "wishlist",
-            joinColumns = @JoinColumn(name = "user_id"),
-            inverseJoinColumns = @JoinColumn(name = "food_id")
-    )
+    @JoinTable(name = "wishlist", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "food_id"))
     private Set<Food> wishlist = new HashSet<>();
 
     public Long getId() {
@@ -65,12 +65,12 @@ public class User {
         return email;
     }
 
-    public String getUsername() {
-        return username;
-    }
-
     public boolean isActive() {
         return active;
+    }
+
+    public String getUsername() {
+        return username;
     }
 
     public Address getAddress() {

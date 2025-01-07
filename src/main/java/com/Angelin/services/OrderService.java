@@ -5,6 +5,10 @@ import com.Angelin.models.OrderItem;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+
+/**
+ * Interface representing the service for managing orders.
+ */
 public interface OrderService {
     Order placeOrder(Long userId, List<OrderItem> items);
 

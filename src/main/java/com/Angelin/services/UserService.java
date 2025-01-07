@@ -6,6 +6,10 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
+
+/**
+ * Interface that defines methods for interacting with user data.
+ */
 @Service
 public interface UserService {
         Iterable<User> saveAll(List<User> users);

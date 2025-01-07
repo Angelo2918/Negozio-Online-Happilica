@@ -3,6 +3,9 @@ package com.Angelin.DataTransferObject;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+/**
+ * Data transfer object for creating a new review.
+ */
 @NoArgsConstructor
 @Data
 public class CreateReviewDto {

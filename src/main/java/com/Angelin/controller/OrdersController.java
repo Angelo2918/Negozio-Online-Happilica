@@ -10,6 +10,10 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+/**
+ * Controller class that handles HTTP requests related to orders.
+ * Contains mappings for placing orders, retrieving orders with pagination, and canceling orders.
+ */
 @RestController
 @RequestMapping("/api/orders")
 public class OrdersController {
@@ -32,5 +36,9 @@ public class OrdersController {
     @PutMapping
     public ResponseEntity<Order> cancelOrder(@RequestParam Long orderId) {
         return ResponseEntity.ok(service.cancelOrder(orderId));
+    }
+
+    public OrderService getService() {
+        return service;
     }
 }

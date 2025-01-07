@@ -7,6 +7,10 @@ import lombok.NoArgsConstructor;
 
 import java.util.List;
 
+/**
+ * Represents a data transfer object for handling request order information.
+ * It contains details about the user placing the order and a list of order items.
+ */
 @NoArgsConstructor
 @AllArgsConstructor
 @Data

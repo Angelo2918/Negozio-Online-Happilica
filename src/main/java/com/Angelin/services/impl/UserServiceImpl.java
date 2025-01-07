@@ -11,6 +11,10 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
+
+/**
+ * Implementation of the UserService interface that provides methods to interact with user data.
+ */
 @Service
 public class UserServiceImpl implements UserService {
 

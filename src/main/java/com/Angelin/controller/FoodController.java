@@ -8,6 +8,9 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+/**
+ * Controller class for handling food-related operations through REST APIs.
+ */
 @RestController
 @RequestMapping("/api/foods")
 public class FoodController {

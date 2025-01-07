@@ -8,6 +8,10 @@ import org.springframework.stereotype.Repository;
 import java.math.BigDecimal;
 import java.util.List;
 
+/**
+ * This interface represents a repository for managing food items. It extends JpaRepository
+ * and provides methods for querying food items by category, price range, and stock quantity.
+ */
 @Repository
 public interface FoodRepository extends JpaRepository<Food, Long> {
     List<Food> findByCategory(FoodCategory category);

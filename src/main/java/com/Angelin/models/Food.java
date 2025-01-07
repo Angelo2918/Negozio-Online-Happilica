@@ -8,6 +8,9 @@ import lombok.NoArgsConstructor;
 
 import java.math.BigDecimal;
 
+/**
+ * Represents a food item that can be ordered or reviewed.
+ */
 @Entity
 @Table(name = "foods")
 @Data
