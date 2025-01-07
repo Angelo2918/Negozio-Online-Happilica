@@ -7,7 +7,8 @@ import lombok.NoArgsConstructor;
 @Data
 public class CreateReviewDto {
     private Long userId;
-    private Long foodsId;
+    private Long foodId;
     private Integer rating;
     private String comment;
+
 }

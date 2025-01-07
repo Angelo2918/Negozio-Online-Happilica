@@ -5,6 +5,7 @@ import jakarta.persistence.*;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 @Entity
@@ -12,22 +13,22 @@ import java.time.LocalDateTime;
 @Data
 @NoArgsConstructor
 public class Review {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @ManyToOne(fetch = FetchType.LAZY,cascade = CascadeType.ALL)
-    @JoinColumn(name = "user-id",referencedColumnName = "id")
+    @JoinColumn(name = "user_id",referencedColumnName = "id")
     @JsonBackReference
     private User user;
 
     @ManyToOne(fetch = FetchType.LAZY,cascade = CascadeType.ALL)
-    @JoinColumn(name = "foods_id",referencedColumnName = "id")
+    @JoinColumn(name = "food_id",referencedColumnName = "id")
     @JsonBackReference
-    private Foods foods;
+    private Food food;
     private Integer rating;
     private String comment;
     private LocalDateTime reviewDate;
+
 
 }

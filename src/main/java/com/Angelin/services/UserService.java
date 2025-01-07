@@ -1,25 +1,22 @@
 package com.Angelin.services;
 
-
 import com.Angelin.DataTransferObject.CreateUserDto;
 import com.Angelin.models.User;
 import org.springframework.stereotype.Service;
 
-
 import java.util.List;
 import java.util.Optional;
-
-
+@Service
 public interface UserService {
-    Iterable<User> saveAll(List<User> users);
+        Iterable<User> saveAll(List<User> users);
 
-    Iterable<User> findAllUsers();
+        Iterable<User> findAllUsers();
 
-    void deleteUser(Long id);
+        void deleteUser(Long id);
 
-    Optional<User> findUserByUsername(String username);
+        Optional<User> findUserByUsername(String username);
 
-    User addUser(User user);
+        User addUser(User user);
 
-    User createUserFromDto(CreateUserDto userDto);
+        User createUserFromDto(CreateUserDto userDto);
 }

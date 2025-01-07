@@ -3,6 +3,7 @@ package com.Angelin.models;
 
 import com.Angelin.enums.OrderStatus;
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -10,7 +11,7 @@ import lombok.NoArgsConstructor;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
-import java.util.Set;
+import java.util.List;
 
 @Entity
 @Table(name = "orders")
@@ -23,10 +24,10 @@ public class Order {
     private Long id;
 
     @OneToMany(mappedBy = "order", cascade = CascadeType.ALL)
-
-    private Set<OrderItem> items;
+    @JsonManagedReference
+    private List<OrderItem> items;
     private LocalDate orderDate;
-    @Enumerated
+    @Enumerated(EnumType.STRING)
     private OrderStatus status;
     private BigDecimal totalAmount;
 
@@ -35,7 +36,7 @@ public class Order {
     @JsonBackReference
     private User user;
 
-    public Order(Set<OrderItem> items, OrderStatus status, LocalDate orderDate, User user) {
+    public Order(List<OrderItem> items, OrderStatus status, LocalDate orderDate, User user) {
         this.items = items;
         this.status = status;
         this.orderDate = orderDate;
@@ -54,20 +55,20 @@ public class Order {
         }
     }
 
-    public Set<OrderItem> getItems() {
-        return items;
-    }
-
-    public void setItems(Set<OrderItem> items) {
-        this.items = items;
-    }
-
     public Long getId() {
         return id;
     }
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public List<OrderItem> getItems() {
+        return items;
+    }
+
+    public void setItems(List<OrderItem> items) {
+        this.items = items;
     }
 
     public LocalDate getOrderDate() {

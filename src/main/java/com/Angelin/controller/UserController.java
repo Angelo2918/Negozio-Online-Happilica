@@ -1,22 +1,12 @@
 package com.Angelin.controller;
 
-import com.Angelin.DataTransferObject.CreateUserDto;
 import com.Angelin.models.User;
-import com.Angelin.Exceptions.UserServiceException;
+import com.Angelin.services.UserService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import com.Angelin.services.UserService;
 
 import java.util.List;
-import java.util.Optional;
-
-/**
- * This class represents a RESTful controller for user-related operations. It includes endpoints for creating, retrieving,
- * updating, and deleting user information. This controller interacts with a UserService to handle business logic.
- * Endpoints include creating multiple users with POST, getting all users with GET, deleting a user by id with DELETE,
- * finding a user by username with GET, and adding a single user with POST.
- */
 
 @RestController
 @RequestMapping("/api/users")
@@ -45,30 +35,12 @@ public class UserController {
         return ResponseEntity.noContent().build();
     }
 
-    @GetMapping("/{username}")
-    public ResponseEntity<User> findByUsername(@PathVariable String username) {
-        Optional<User> user = service.findUserByUsername(username);
-
-        return user.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
-    }
-
     @PostMapping
     public ResponseEntity<User> addUser(@RequestBody User user) {
         User savedUser = service.addUser(user);
         return ResponseEntity.ok(savedUser);
     }
 
-    @PostMapping("/create-from-dto")
-    public ResponseEntity<User> createUserFromDto(@RequestBody CreateUserDto userDto) {
-        User user = new User();
-        try {
-            user = service.createUserFromDto(userDto);
-        } catch (UserServiceException ex) {
-            System.out.println(ex.getMessage());
-            System.out.println(ex.getErrorCode());
-        }
-        return ResponseEntity.ok(user);
-    }
 
 
 }

@@ -12,13 +12,13 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/orders")
-public class OrderController {
+public class OrdersController {
     @Autowired
     private OrderService service;
 
     @PostMapping
     public ResponseEntity<Order> placeOrder(@RequestBody RequestOrderDto orderDto) {
-        System.out.println("Place order!");
+        System.out.println(" Order");
         Order order = service.placeOrder(orderDto.getUserId(), orderDto.getItems());
         return ResponseEntity.ok(order);
     }

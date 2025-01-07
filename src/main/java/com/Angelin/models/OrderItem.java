@@ -5,76 +5,49 @@ import jakarta.persistence.*;
 import lombok.Data;
 
 import java.math.BigDecimal;
+
 @Entity
-@Table(name = "order_item")
-@Data
-public class OrderItem {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    @Table(name = "order_item")
+    @Data
+    public class OrderItem {
+        @Id
+        @GeneratedValue(strategy = GenerationType.IDENTITY)
+        private Long id;
 
-    @ManyToOne
-    @JoinColumn(name = "foods_id", nullable = false)
-    private Foods foods;
+        @ManyToOne
+        @JoinColumn(name = "food_id", nullable = false)
+        private Food food;
 
-    @Column(nullable = false)
-    private Integer quantity;
+        @Column(nullable = false)
+        private Integer quantity;
 
-    @ManyToOne
-    @JoinColumn(name = "order_id", nullable = false)
-    @JsonBackReference
-    private Order order;
+        @ManyToOne
+        @JoinColumn(name = "order_id", nullable = false)
+        @JsonBackReference
+        private Order order;
 
-    public OrderItem() {
+        public OrderItem() {
+        }
+
+        public OrderItem(Order order, Food food, Integer quantity) {
+            this.order = order;
+            this.quantity = quantity;
+            this.food = food;
+        }
+
+        public BigDecimal getSubtotal() {
+            return food.getPrice().multiply(BigDecimal.valueOf(quantity));
+        }
+
+        public void setQuantity(Integer quantity) {
+            if (quantity <= 0)
+                throw new IllegalArgumentException("Quantity must be positive!");
+
+            this.quantity = quantity;
+        }
+
+        public void updateFoodStock() {
+            this.food.setStockQuantity(this.food.getStockQuantity() - this.quantity);
+        }
+
     }
-
-    public OrderItem(Order order, Foods foods, Integer quantity) {
-        this.order = order;
-        this.quantity = quantity;
-        this.foods = foods;
-    }
-
-    public BigDecimal getSubtotal() {
-        return foods.getPrice().multiply(BigDecimal.valueOf(quantity));
-    }
-
-    public void setQuantity(Integer quantity) {
-        if (quantity <= 0)
-            throw new IllegalArgumentException("Quantity must be positive!");
-
-
-        this.quantity = quantity;
-    }
-
-    public void updateFoodsStock() {
-        this.foods.setStockQuantity(this.foods.getStockQuantity() - this.quantity);
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public Foods getFoods() {
-        return foods;
-    }
-
-    public Integer getQuantity() {
-        return quantity;
-    }
-
-    public Order getOrder() {
-        return order;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public void setFoods(Foods foods) {
-        this.foods = foods;
-    }
-
-    public void setOrder(Order order) {
-        this.order = order;
-    }
-}
