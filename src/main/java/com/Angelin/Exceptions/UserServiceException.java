@@ -11,4 +11,5 @@ public class UserServiceException extends RuntimeException {
     public String getErrorCode() {
         return errorCode;
     }
+
 }

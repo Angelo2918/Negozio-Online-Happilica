@@ -14,4 +14,19 @@ public class CreateReviewDto {
     private Integer rating;
     private String comment;
 
+    public Long getUserId() {
+        return userId;
+    }
+
+    public Long getFoodId() {
+        return foodId;
+    }
+
+    public Integer getRating() {
+        return rating;
+    }
+
+    public String getComment() {
+        return comment;
+    }
 }
