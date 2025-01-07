@@ -11,7 +11,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
-
+@Service
 public class UserServiceImpl implements UserService {
 
     @Autowired
@@ -46,11 +46,6 @@ public class UserServiceImpl implements UserService {
         User user = mapper.convertValue(userDto, User.class);
 
         User savedUser = jpaRepository.save(user);
-
-        String subject = "Welcome to our service!";
-        String body = "Dear " + savedUser.getName() + " Thank you for registration! \n your username is " + savedUser.getUsername();
-
-
         return savedUser;
     }
 
