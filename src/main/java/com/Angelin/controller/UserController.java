@@ -1,7 +1,6 @@
 package com.Angelin.controller;
 
 import com.Angelin.DataTransferObject.CreateUserDto;
-import com.Angelin.Exceptions.UserServiceException;
 import com.Angelin.models.User;
 import com.Angelin.services.UserService;
 import org.springframework.http.HttpStatus;
@@ -9,6 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 /**
@@ -20,6 +20,7 @@ public class UserController {
     private final UserService service;
 
     public UserController(UserService userService) {
+
         this.service = userService;
     }
 
@@ -54,15 +55,27 @@ public class UserController {
         return ResponseEntity.ok(savedUser);
     }
 
-    @PostMapping("/create-from-dto")
-    public ResponseEntity<User> createUserFromDto(@RequestBody CreateUserDto userDto) {
-        User user = new User();
+    @PostMapping(value = "/create-from-dto",consumes = "application/json")
+    public ResponseEntity<Map<String, String>> createUserFromDto(@RequestBody Map<String,String> user) {
+        CreateUserDto newUser = new CreateUserDto();
+        newUser.setName(user.get("name"));
+        newUser.setEmail(user.get("email"));
+        newUser.setUsername(user.get("username"));
+        newUser.setActive(user.get("active").equals("true"));
+        service.createUserFromDto(newUser);
+        /*      User user = new User();
         try {
             user = service.createUserFromDto(userDto);
         } catch (UserServiceException ex) {
             System.out.println(ex.getMessage());
             System.out.println(ex.getErrorCode());
-        }
+
+    "name": "Jon Travis",
+    "email": "travisjon@gmail.com",
+    "username": "jontri",
+    "active": "true"
+        }*/
         return ResponseEntity.ok(user);
     }
+
 }

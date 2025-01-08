@@ -22,36 +22,15 @@ public class Review {
 
     @ManyToOne(fetch = FetchType.LAZY,cascade = CascadeType.ALL)
     @JoinColumn(name = "user_id",referencedColumnName = "id")
+    @JsonBackReference
     private User user;
 
     @ManyToOne(fetch = FetchType.LAZY,cascade = CascadeType.ALL)
     @JoinColumn(name = "food_id",referencedColumnName = "id")
+    @JsonBackReference
     private Food food;
     private Integer rating;
     private String comment;
     private LocalDateTime reviewDate;
 
-    public Long getId() {
-        return id;
-    }
-
-    public User getUser() {
-        return user;
-    }
-
-    public Food getFood() {
-        return food;
-    }
-
-    public Integer getRating() {
-        return rating;
-    }
-
-    public String getComment() {
-        return comment;
-    }
-
-    public LocalDateTime getReviewDate() {
-        return reviewDate;
-    }
 }

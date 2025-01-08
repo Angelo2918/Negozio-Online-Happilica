@@ -27,8 +27,8 @@ public class Address {
     private Integer numberOfStreet;
 
 
-    @OneToOne(mappedBy = "address")
-    @JsonBackReference
-    private User user;
+//    @OneToOne(mappedBy = "address")
+//    @JsonBackReference
+//    private User user;
 
 }
