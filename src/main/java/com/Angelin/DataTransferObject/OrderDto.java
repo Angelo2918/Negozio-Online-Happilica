@@ -8,7 +8,7 @@ import java.time.LocalDate;
 
 /**
  * Represents a Data Transfer Object (DTO) for an order.
- *
+ * <p>
  * This class is used for transferring order data between different layers of the application.
  */
 @Data

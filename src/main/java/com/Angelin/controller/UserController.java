@@ -55,8 +55,8 @@ public class UserController {
         return ResponseEntity.ok(savedUser);
     }
 
-    @PostMapping(value = "/create-from-dto",consumes = "application/json")
-    public ResponseEntity<Map<String, String>> createUserFromDto(@RequestBody Map<String,String> user) {
+    @PostMapping(value = "/create-from-dto", consumes = "application/json")
+    public ResponseEntity<Map<String, String>> createUserFromDto(@RequestBody Map<String, String> user) {
         CreateUserDto newUser = new CreateUserDto();
         newUser.setName(user.get("name"));
         newUser.setEmail(user.get("email"));

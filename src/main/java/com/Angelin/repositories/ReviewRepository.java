@@ -7,5 +7,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
  * Interface extending JpaRepository for managing Review entities in the database.
  * Provides basic CRUD operations for Review entities.
  */
-public interface ReviewRepository extends JpaRepository<Review,Long> {
+public interface ReviewRepository extends JpaRepository<Review, Long> {
 }

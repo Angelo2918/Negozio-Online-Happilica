@@ -48,7 +48,7 @@ public class OrderItem {
     }
 
     public Integer getQuantity() {
-    return quantity;
+        return quantity;
     }
 
     public void setQuantity(Integer quantity) {
@@ -66,14 +66,14 @@ public class OrderItem {
         return food;
     }
 
+    public void setFood(Food food) {
+    }
+
     public Order getOrder() {
         return order;
     }
 
     public void setOrder(Order order) {
-    }
-
-    public void setFood(Food food) {
     }
 
 }

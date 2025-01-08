@@ -11,8 +11,9 @@ import java.util.List;
 /**
  * Interface for managing orders in the repository.
  */
-public interface OrderRepository extends JpaRepository<Order,Long> {
+public interface OrderRepository extends JpaRepository<Order, Long> {
     List<Order> findByUserId(Long userId);
+
     Page<Order> findByUserId(Long userId, Pageable pageable);
 
     List<Order> findAllByOrderDateBetween(LocalDate startDate, LocalDate endDate);

@@ -7,7 +7,6 @@ import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
@@ -15,7 +14,7 @@ import java.util.List;
 
 /**
  * Represents an order placed by a user consisting of order items.
- *
+ * <p>
  * An order includes the ID, items in the order, order date, status, total amount, and the user who placed the order.
  * It provides methods to calculate the total amount of the order and update its status based on the order items.
  */
@@ -47,9 +46,11 @@ public class Order {
         this.orderDate = orderDate;
         this.user = user;
     }
+
     public Order() {
 
     }
+
     public void calculateTotalAmount() {
         this.totalAmount = items.stream().map(OrderItem::getSubtotal).reduce(BigDecimal.ZERO, BigDecimal::add);
     }
