@@ -58,7 +58,7 @@ public class OrderServiceImpl implements OrderService {
                                     .orElseThrow(() -> new EntityNotFoundException("Food not found!"));
                             orderItem.setFood(food);
                         } else {
-                            System.out.println("item.getInstrument() = " + item.getFood());
+
                             orderItem.setFood(item.getFood());
                         }
 

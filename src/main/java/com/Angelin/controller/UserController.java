@@ -69,11 +69,6 @@ public class UserController {
         } catch (UserServiceException ex) {
             System.out.println(ex.getMessage());
             System.out.println(ex.getErrorCode());
-
-    "name": "Jon Travis",
-    "email": "travisjon@gmail.com",
-    "username": "jontri",
-    "active": "true"
         }*/
         return ResponseEntity.ok(user);
     }
